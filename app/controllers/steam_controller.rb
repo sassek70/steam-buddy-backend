@@ -13,6 +13,10 @@ class SteamController < ApplicationController
         response = RestClient.get(url)
         parsed_response = JSON.parse(response)
         render json:{response: parsed_response}
+    end
 
+    def env_test
+        env_variable = ENV['MY_ID']
+        render json: {response: env_variable}
     end
 end

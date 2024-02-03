@@ -37,7 +37,7 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 #Allows to have a .env file
-gem 'dotenv-rails'
+gem 'dotenv'
 
 #Allows fetch requests from backend
 gem 'rest-client'
