@@ -1,6 +1,6 @@
 class SteamController < ApplicationController
 
-    # require "rest-client"
+    require "rest-client"
 
     def index 
         response = "Hello from the Steam controller"
@@ -9,7 +9,8 @@ class SteamController < ApplicationController
 
 
     def test_query
-        url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=#{ENV[`STEAM_KEY`]}&steamids=#{ENV[`MY_ID`]}`
+        # url = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=#{ENV['STEAM_KEY']}&steamids=#{ENV['MY_ID']}"
+        url = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=#{ENV['STEAM_KEY']}&steamids=#{ENV['OTHER_ID']}"
         response = RestClient.get(url)
         parsed_response = JSON.parse(response)
         render json:{response: parsed_response}
