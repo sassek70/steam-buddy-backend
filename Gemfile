@@ -45,6 +45,8 @@ gem 'rest-client'
 #Parse external fetch into json
 gem 'json'
 
+#OpenID OAuth for Steam web browswer authentication
+gem 'rodauth-oauth'
 
 
 group :development, :test do
