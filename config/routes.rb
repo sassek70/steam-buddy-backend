@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   post "/create_user", to: "users#create"
 
+  patch "/update_user/:id", to: "users#update"
 
 
-  delete "/delete_user", to: "users#destroy"
+
+  delete "/delete_user/:id", to: "users#destroy"
   delete "/delete_all", to: "users#delete_all_users"
 
 end

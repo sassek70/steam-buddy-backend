@@ -12,17 +12,21 @@ class UsersController < ApplicationController
   end
 
   def delete_all_users
-    user = User.all.destroy
-    head :ok
+    users = User.destroy_all
+    render json: {message: "All Test Users deleted successfully"}, status: :ok
   end
 
   def destroy
     user = User.find(params[:id])
     user.destroy
-    head :ok
+    # head :ok
+    render json: {message: "User deleted successfully"}, status: :ok
   end
 
-  def email
+  def update
+    user = User.find(params[:id])
+    user.update(user_params) 
+    render json: user, status: :ok
   end
 
   private
