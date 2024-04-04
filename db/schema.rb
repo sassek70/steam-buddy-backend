@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_03_204400) do
-  create_table "groups", force: :cascade do |t|
-    t.string "group_name"
-    t.string "group_leader"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.0].define(version: 2024_04_04_011509) do
+  create_table "games", force: :cascade do |t|
+    t.string "game_name"
+    t.integer "steam_game_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "user_email"
+  create_table "group_games", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_game_id"
+    t.integer "game_added_by_user"
+    t.date "date_added"
   end
+
+# Could not dump table "groups" because of following StandardError
+#   Unknown type 'bool' for column 'is_public'
+
+  create_table "user_games", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+  end
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "group_member_id"
+  end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'bool' for column 'is_online'
 
 end
