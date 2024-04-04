@@ -63,7 +63,7 @@ p "Generating user games"
 
 user_games = 0
 until user_games == 50 do
-    UserGame.create(user_id: User.all.sample.id, game_id: Games.all.sample.id)
+    UserGame.create(user_id: User.all.sample.id, game_id: Game.all.sample.id)
     user_games += 1
 end
 
