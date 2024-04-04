@@ -1,0 +1,2 @@
+class GroupGame < ApplicationRecord
+end

@@ -48,6 +48,9 @@ gem 'json'
 #OpenID OAuth for Steam web browswer authentication
 gem 'rodauth-oauth'
 
+#Used to make seeded test data
+gem 'faker'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
