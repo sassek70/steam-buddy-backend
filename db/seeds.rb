@@ -38,7 +38,7 @@ p "Games created successfully"
 created_groups = 0
 until created_groups == 5 do
     leader = User.all.sample
-    Group.create(group_name: "#{leader}'s group", group_leader: leader.id, group_creator: leader.id, total_users: rand(1..10), is_public: [true,false].sample)
+    Group.create(group_name: "#{leader.username}'s group", group_leader: User.all.sample.id, group_creator: leader.id, total_users: rand(1..10), is_public: [true,false].sample)
     created_groups += 1
 end
 
