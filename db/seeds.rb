@@ -74,8 +74,9 @@ p "Generating group games"
 group_games = 0
 until group_games == 30 do 
     group = Group.all.sample
-    added_by_user = UserGame.all.sample
-    GroupGame.create(group_id: group.id, user_game_id: added_by_user.id, game_added_by_user: added_by_user.username, date_added: :date)
+    added_by_user = User.all.sample
+    user_game = User
+    GroupGame.create(group_id: group.id, user_game_id: UserGame.find_by!(user_id: added_by_user.id), game_added_by_user: added_by_user.username, date_added: :date)
     group_games += 1
 end
 
