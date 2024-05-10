@@ -6,9 +6,7 @@ class UsersController < ApplicationController
   
   def create
     user = User.create!(user_params)
-    # user_params = user_params
     render json: user, status: :created
-    puts user_params
   end
 
   def delete_all_users
