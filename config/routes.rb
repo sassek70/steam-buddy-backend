@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/steam", to: "steam#index"
   get "/steam_user", to: "steam#test_query"
   get "/env", to: "steam#env_test"
+  get "/getuser", to: "users#show"
 
 
   post "/create_user", to: "users#create"
