@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get "/steam", to: "steam#index"
   get "/steam_user", to: "steam#test_query"
   get "/env", to: "steam#env_test"
-  get "/getuser", to: "users#show"
-
-
+  
+  
+  post "/login", to: "session#create"
   post "/create_user", to: "users#create"
 
   patch "/update_user/:id", to: "users#update"

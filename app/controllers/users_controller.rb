@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # wrap_parameters format: [:json]
   
   def index
     render json: User.all
@@ -35,6 +36,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :username, :user_email)
+    # params.require(:user).permit(:id, :username, :password, :user_email)
+    params.permit(:id, :username, :password, :user_email)
+
   end
 end

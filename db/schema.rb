@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_04_011509) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_16_225743) do
   create_table "games", force: :cascade do |t|
     t.string "game_name"
     t.integer "steam_game_id"
@@ -37,6 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_04_011509) do
   end
 
 # Could not dump table "users" because of following StandardError
-#   Unknown type 'bool' for column 'is_online'
+#   Unknown type '' for column 'is_online'
 
 end
