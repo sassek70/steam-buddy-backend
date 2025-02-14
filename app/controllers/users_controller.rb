@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # wrap_parameters format: [:json]
+  wrap_parameters format: []
   
   def index
     render json: User.all
