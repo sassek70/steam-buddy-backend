@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   
   post "/login", to: "session#create"
+  post "/existing_token", to: "session#existing_token"
   post "/create_user", to: "users#create"
 
   patch "/update_user/:id", to: "users#update"

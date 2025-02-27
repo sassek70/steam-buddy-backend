@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   
   def create
     user = User.create!(user_params)
-    render json: user, status: :created
+    auth_token = JWT.encode({auth_token_id: user.id, username: user.username}, ENV['JWT_TOKEN'])
+    render json: {auth_token: auth_token, user: user}, status: :created
   end
 
   def delete_all_users

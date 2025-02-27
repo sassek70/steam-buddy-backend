@@ -51,6 +51,9 @@ gem 'rodauth-oauth'
 #Used to make seeded test data
 gem 'faker'
 
+#Encoding/decoding data
+gem 'jwt'
+
 
 
 group :development, :test do
