@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # get `/userdata`, to: 'steam#test_query'
+  post "/store_search", to: "steam#store_search"
   get "/user_index", to: "users#index"
   get "/steam", to: "steam#index"
   get "/steam_user", to: "steam#test_query"
