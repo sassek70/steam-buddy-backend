@@ -1,5 +1,6 @@
 class SteamController < ApplicationController
     require "rest-client"
+    require "json"
     
     
 
@@ -21,11 +22,20 @@ class SteamController < ApplicationController
     end
 
     def store_search
-        search_term = params[:_json]
-        url = "https://store.steampowered.com/search/?term=#{search_term}/supportedlang=english"
-        response = RestClient.get(url)
-        parsed_response = JSON.parse(response)
-        render json:{response: parsed_response}
+        # search_term = params[:_json]
+        # url = "https://store.steampowered.com/search/?term=#{search_term}/supportedlang=english"
+        url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/"
+        steam_list = RestClient.get(url)
+        steam_list_parsed = steam_list.to_json
+        # if steam_list_parsed.dig(:applist, :applist)
+        
+        # render json: {response: steam_list}
+        # puts steam_list.map(&:values).select{ |appid, values| values["name"] == %w[grand theft auto]}
+
+        # puts steam_list_parsed.dig(&:values).select{ |appid, values| values["name"] == %w[grand theft auto]}
+        
+        # render json:{response: steam_list_parsed}
+        render json:{response: steam_list}
         # puts "the full url is: #{url}"
     end
 
