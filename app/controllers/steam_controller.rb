@@ -22,20 +22,32 @@ class SteamController < ApplicationController
     end
 
     def store_search
+        found_search_results = Array.new()
         # search_term = params[:_json]
         # url = "https://store.steampowered.com/search/?term=#{search_term}/supportedlang=english"
         url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/"
         steam_list = RestClient.get(url)
-        steam_list_parsed = steam_list.to_json
+        steam_list_parsed = JSON.parse(steam_list)
+
         # if steam_list_parsed.dig(:applist, :applist)
         
-        # render json: {response: steam_list}
-        # puts steam_list.map(&:values).select{ |appid, values| values["name"] == %w[grand theft auto]}
+        # search_result = steam_list.map(&:values).select{ |appid, values| values["name"] == %w[grand theft auto]}
+        # render json: {response: steam_list["applist"]["apps"].select(:name, "warhammer")}
+        steam_list_parsed.each do |applist, app|
+            if app.include?(:name, "warhammer") 
+                found_search_results.insert(app)
+            end
+        end
+
+        render json:{response: found_search_results}
+        # render json:{response: steam_list_parsed}
+            
+        # puts steam_list_parsed.response
 
         # puts steam_list_parsed.dig(&:values).select{ |appid, values| values["name"] == %w[grand theft auto]}
         
-        # render json:{response: steam_list_parsed}
-        render json:{response: steam_list}
+        # render json:{response: steam_list}
+        # render json:{response: steam_list.to_json()}
         # puts "the full url is: #{url}"
     end
 
